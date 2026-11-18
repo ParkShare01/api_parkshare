@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import * as veiculoService from '../services/veiculoServices.js';
+import * as veiculoService from '../services/veiculoService.js';
 
 // VALIDAÇÃO PARA CADASTRO
 export const veiculoCreateSchema = Joi.object({

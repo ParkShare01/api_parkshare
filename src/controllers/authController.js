@@ -1,5 +1,5 @@
 // src/controllers/authController.js
-import jwt from 'jsonwebtoker';
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import * as usuarioService from '../services/usuarioService.js';
 export const login = async (req, res) => {

@@ -10,7 +10,11 @@ import authMiddleware from '../middlewares/authMiddleware.js';
 const router = express.Router();
 
 // A rota de criação de cliente (registro) continua pública
-router.post('/', validate(usuarioCreateSchema), usuarioController.adicionarUsuario);// Rota final: POST /api/clientes
+router.post(
+  '/',
+  validate(usuarioCreateSchema),
+  usuarioController.adicionarUsuarios
+);
 
  //2. Aplica o proteção do login em todas as rotas abaixo desta linha
 router.use(authMiddleware);

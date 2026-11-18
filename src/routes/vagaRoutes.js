@@ -1,19 +1,37 @@
 import express from 'express';
 import * as vagaController from '../controllers/vagaController.js';
 import validate from '../middlewares/validate.js';
-import { vagaCreateSchema, vagaUpdateSchema } from '../controllers/vagaController.js';
- 
 import authMiddleware from '../middlewares/authMiddleware.js';
- 
+
 const router = express.Router();
- 
-router.post('/', validate(vagaCreateSchema), vagaController.adicionarvaga);
- 
+
+// Cadastro de vaga
+router.post(
+  '/',
+  validate(vagaController.vagaCreateSchema),
+  vagaController.adicionarvaga
+);
+
+// Proteção das rotas abaixo
 router.use(authMiddleware);
- 
-router.get('/', vagaController.listarvagas);
- 
-router.put('/:idVaga', validate(vagaUpdateSchema), vagaController.atualizarVaga);
- 
-router.delete('/:idVaga', vagaController.deletarVaga);
+
+// Listar vagas
+router.get(
+  '/',
+  vagaController.listarVagas
+);
+
+// Atualizar vaga
+router.put(
+  '/:idVaga',
+  validate(vagaController.vagaUpdateSchema),
+  vagaController.atualizarVaga
+);
+
+// Excluir vaga
+router.delete(
+  '/:idVaga',
+  vagaController.deletarVaga
+);
+
 export default router;

@@ -2,9 +2,11 @@
   "name": "parkshare",
   "version": "1.0.0",
   "description": "ParkShare",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
   },
   "author": "Nicolas Sperli, Eduardo Benício, Rafael Alves, Guilherme Apis",
   "license": "ISC",
